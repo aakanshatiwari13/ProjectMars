@@ -30,6 +30,26 @@ namespace ProjectMars.Pages
             //click on add button 
             IWebElement AddButton1 = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/div/span/input[1]"));
             AddButton1.Click();
+
+
+            //click on AddNew button to add singing skills
+            IWebElement AddNew2 = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/thead/tr/th[3]/div"));
+            AddNew2.Click();
+
+            //add Skills
+            IWebElement AddSkills1 = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/div/div[1]/input"));
+            AddSkills1.SendKeys("Singing");
+
+            //choose language level 
+            IWebElement ChooseLevel8 = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/div/div[2]/select"));
+            ChooseLevel2.Click();
+
+            IWebElement ChooseLevel9 = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/div/div[2]/select/option[4]"));
+            ChooseLevel3.Click();
+
+            //click on add button 
+            IWebElement AddButton4 = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/div/span/input[1]"));
+            AddButton4.Click();
         }
 
 
