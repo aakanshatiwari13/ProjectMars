@@ -145,18 +145,6 @@ namespace ProjectMars.Pages
             IWebElement getMessage1 = driver.FindElement(By.XPath("/html/body/div[1]/div"));
             return getMessage1.Text;
         }
-        public string GetMessage2(IWebDriver driver)
-        {
-            Thread.Sleep(2000);
-            string input = "Aakansha Tiwari";
-            string replaced = input.Replace(" ", " ");
-            return Replaced.Text;
-        }
     }
-    
 }
 
-string input = "Aakansha Tiwari";
-string replaced = input.Replace(" ", "_");
-Console.WriteLine(replaced); // Output: "Aakansha_Tiwari"
-Splitting the String:
