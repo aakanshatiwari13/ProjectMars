@@ -98,13 +98,13 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 10
-    testRunner.Given("User is logged into localhost URL successful", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+    testRunner.Given("User is logged into localhost URL for Language successful", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 11
     testRunner.When(string.Format("Add new \'{0}\' and \'{1}\' to the language list", language, level), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 12
-    testRunner.Then(string.Format("New record with \'{0}\' and \'{1}\' are added successfully", language, level), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.Then(string.Format("New record for Language with \'{0}\' and \'{1}\' are added successfully", language, level), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -131,7 +131,7 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 22
- testRunner.Given("User is logged into localhost URL successful", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("User is logged into localhost URL for Language successful", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 23
  testRunner.When(string.Format("I update language \'{0}\' and level \'{1}\' of an existing record", language, level), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
@@ -164,7 +164,7 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 32
-    testRunner.Given("User is logged into localhost URL successful", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+    testRunner.Given("User is logged into localhost URL for Language successful", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 33
  testRunner.When(string.Format("I deleted language \'{0}\' of an existing record", language), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
@@ -194,28 +194,28 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 41
- testRunner.Given("User is logged into localhost URL successful", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("User is logged into localhost URL for Language successful", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 42
- testRunner.When("Check cancel button of the records", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("Check cancel button for Language of the records", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 43
- testRunner.Then("Cancel function is working successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("Cancel function for Language is working successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("For negative testing add skills record with valid details")]
+        [NUnit.Framework.DescriptionAttribute("For negative testing add language record with valid details")]
         [NUnit.Framework.TestCaseAttribute("English", "Fluent", null)]
-        public void ForNegativeTestingAddSkillsRecordWithValidDetails(string language, string level, string[] exampleTags)
+        public void ForNegativeTestingAddLanguageRecordWithValidDetails(string language, string level, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("Language", language);
             argumentsOfScenario.Add("Level", level);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("For negative testing add skills record with valid details", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("For negative testing add language record with valid details", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 45
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -227,13 +227,13 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 46
-testRunner.Given("User is logged into localhost URL successful", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+testRunner.Given("User is logged into localhost URL for Language successful", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 47
 testRunner.When(string.Format("Add new record \'{0}\' and \'{1}\' to the language list", language, level), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 48
-testRunner.Then(string.Format("Record with \'{0}\' and \'{1}\' are added successfully", language, level), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.Then(string.Format("Record \'{0}\' and \'{1}\' are added successfully", language, level), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

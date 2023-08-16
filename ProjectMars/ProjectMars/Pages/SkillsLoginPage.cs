@@ -1,11 +1,15 @@
-﻿using NUnit.Framework;
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using NUnit.Framework;
 using ProjectMars.Utilities;
-
 
 namespace ProjectMars.Pages
 {
-    public class LoginPage : CommonDriver
+    public class SkillsLoginPage
     {
         public void LoginSteps(IWebDriver driver)
         {
@@ -30,6 +34,10 @@ namespace ProjectMars.Pages
             {
                 Assert.Fail("login page didn not load.", ex);
             }
+
+            //identify username textbox and enter valid username
+            // IWebElement usernameTextbox = driver.FindElement(By.Name("email"));
+
 
             //identify password textbox and enter valid password
             IWebElement passwordTextbox = driver.FindElement(By.Name("password"));

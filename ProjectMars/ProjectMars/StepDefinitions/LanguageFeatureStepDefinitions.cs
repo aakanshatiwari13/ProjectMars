@@ -12,11 +12,11 @@ namespace ProjectMars.StepDefinitions
     [Binding]
     public class LanguageFeatureStepDefinitions : CommonDriver
     {
-        [Given(@"User is logged into localhost URL successful")]
-        public void GivenUserIsLoggedIntoLocalhostURLSuccessful()
+        [Given(@"User is logged into localhost URL for Language successful")]
+        public void GivenUserIsLoggedIntoLocalhostURLForLanguageSuccessful()
         {
-           driver = new ChromeDriver();
-           LoginPage loginPageObj = new LoginPage();
+            driver = new ChromeDriver();
+            LoginPage loginPageObj = new LoginPage();
             loginPageObj.LoginSteps(driver);
         }
 
@@ -28,8 +28,8 @@ namespace ProjectMars.StepDefinitions
             languagePageObj.CreateLanguage(driver, language, level);
         }
 
-        [Then(@"New record with '([^']*)' and '([^']*)' are added successfully")]
-        public void ThenNewRecordWithAndAreAddedSuccessfully(string language, string level)
+        [Then(@"New record for Language with '([^']*)' and '([^']*)' are added successfully")]
+        public void ThenNewRecordForLanguageWithAndAreAddedSuccessfully(string language, string level)
         {
             LanguagePage languagePageObj = new LanguagePage();
 
@@ -37,8 +37,8 @@ namespace ProjectMars.StepDefinitions
             string newLevel = languagePageObj.GetLevel(driver);
             Assert.AreEqual(language, newLanguage, "Actual and expected Language do not match. Language not added!");
             Assert.AreEqual(level, newLevel, "Actual and expected Language Level do not match. Language Level not added!");
-            
         }
+
         [When(@"I update language '([^']*)' and level '([^']*)' of an existing record")]
         public void WhenIUpdateLanguageAndLevelOfAnExistingRecord(string language, string level)
         {
@@ -72,15 +72,14 @@ namespace ProjectMars.StepDefinitions
             Assert.AreEqual(deleteMessage, getMessage1, "Actual and expected Language do not match. Language not deleted!");
         }
 
-        [When(@"Check cancel button of the records")]
-        public void WhenCheckCancelButtonOfTheRecords()
+        [When(@"Check cancel button for Language of the records")]
+        public void WhenCheckCancelButtonForLanguageOfTheRecords()
         {
             LanguagePage languagePageObj = new LanguagePage();
             languagePageObj.CancelLanguage(driver);
         }
-
-        [Then(@"Cancel function is working successfully")]
-        public void ThenCancelFunctionIsWorkingSuccessfully()
+        [Then(@"Cancel function for Language is working successfully")]
+        public void ThenCancelFunctionForLanguageIsWorkingSuccessfully()
         {
             LanguagePage languagePageObj = new LanguagePage();
             languagePageObj.CheckCancel(driver);
@@ -92,9 +91,8 @@ namespace ProjectMars.StepDefinitions
             LanguagePage languagePageObj = new LanguagePage();
             languagePageObj.CreateLanguage(driver, language, level);
         }
-
-        [Then(@"Record with '([^']*)' and '([^']*)' are added successfully")]
-        public void ThenRecordWithAndAreAddedSuccessfully(string language, string level)
+        [Then(@"Record '([^']*)' and '([^']*)' are added successfully")]
+        public void ThenRecordAndAreAddedSuccessfully(string language, string level)
         {
             LanguagePage languagePageObj = new LanguagePage();
 
