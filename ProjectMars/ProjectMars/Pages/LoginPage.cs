@@ -31,10 +31,6 @@ namespace ProjectMars.Pages
                 Assert.Fail("login page didn not load.", ex);
             }
 
-            //identify username textbox and enter valid username
-           // IWebElement usernameTextbox = driver.FindElement(By.Name("email"));
-            
-
             //identify password textbox and enter valid password
             IWebElement passwordTextbox = driver.FindElement(By.Name("password"));
             passwordTextbox.SendKeys("*aakansha13");
