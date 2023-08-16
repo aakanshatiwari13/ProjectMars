@@ -170,7 +170,6 @@ namespace ProjectMars.Pages
             Cancel3.Click();
             Thread.Sleep(1000);
         }
-
         public void CheckCancel(IWebDriver driver)
         {
             HomePage skillHomePageObj = new HomePage();
