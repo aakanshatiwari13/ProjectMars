@@ -145,6 +145,62 @@ namespace ProjectMars.Pages
             IWebElement getMessage1 = driver.FindElement(By.XPath("/html/body/div[1]/div"));
             return getMessage1.Text;
         }
+
+        public void CancelLanguage(IWebDriver driver)
+        {
+            HomePage languageHomePageObj = new HomePage();
+            languageHomePageObj.GoToLanguagePage(driver);
+            Thread.Sleep(2000);
+            Wait.WaitToBeClickable(driver, "XPath", "//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/thead/tr/th[3]/div", 20);
+            //click addnew button 
+            IWebElement AddNew1 = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/thead/tr/th[3]/div"));
+            AddNew1.Click();
+            Thread.Sleep(2000);
+
+            //click add new cancel 
+            IWebElement AddNewCancel = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/div/div[3]/input[2]"));
+            AddNewCancel.Click();
+            Thread.Sleep(1000);
+
+            //click first edit button 
+            IWebElement Edit1 = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody[1]/tr/td[3]/span[1]/i"));
+            Edit1.Click();
+            Thread.Sleep(1000);
+
+            //click first cancel button 
+            IWebElement Cancel1 = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody[1]/tr/td/div/span/input[2]"));
+            Cancel1.Click();
+            Thread.Sleep(1000);
+
+            //click secong edit button 
+            IWebElement Edit2 = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody[2]/tr/td[3]/span[1]/i"));
+            Edit2.Click();
+            Thread.Sleep(1000);
+
+            //click second cancel button 
+            IWebElement Cancel2 = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody[2]/tr/td/div/span/input[2]"));
+            Cancel2.Click();
+            Thread.Sleep(1000);
+
+            //click third edit button 
+            IWebElement Edit3 = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody[3]/tr/td[3]/span[1]/i"));
+            Edit3.Click();
+            Thread.Sleep(1000);
+
+            //click third cancel button 
+            IWebElement Cancel3 = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody[3]/tr/td/div/span/input[2]"));
+            Cancel3.Click();
+            Thread.Sleep(1000);
+        }
+
+        public void CheckCancel(IWebDriver driver)
+        {
+            HomePage languageHomePageObj = new HomePage();
+            languageHomePageObj.GoToLanguagePage(driver);
+            Thread.Sleep(2000);
+            IWebElement LastCancel = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody[3]/tr/td[2]"));
+            Assert.That(LastCancel.Text == "Fluent", "Actual text and expected text do not match.");
+        }
     }
 }
 

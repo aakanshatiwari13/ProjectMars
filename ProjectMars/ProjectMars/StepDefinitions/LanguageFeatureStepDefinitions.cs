@@ -72,7 +72,37 @@ namespace ProjectMars.StepDefinitions
             Assert.AreEqual(deleteMessage, getMessage1, "Actual and expected Language do not match. Language not deleted!");
         }
 
+        [When(@"Check cancel button of the records")]
+        public void WhenCheckCancelButtonOfTheRecords()
+        {
+            LanguagePage languagePageObj = new LanguagePage();
+            languagePageObj.CancelLanguage(driver);
+        }
 
+        [Then(@"Cancel function is working successfully")]
+        public void ThenCancelFunctionIsWorkingSuccessfully()
+        {
+            LanguagePage languagePageObj = new LanguagePage();
+            languagePageObj.CheckCancel(driver);
+        }
+
+        [When(@"Add new record '([^']*)' and '([^']*)' to the language list")]
+        public void WhenAddNewRecordAndToTheLanguageList(string language, string level)
+        {
+            LanguagePage languagePageObj = new LanguagePage();
+            languagePageObj.CreateLanguage(driver, language, level);
+        }
+
+        [Then(@"Record with '([^']*)' and '([^']*)' are added successfully")]
+        public void ThenRecordWithAndAreAddedSuccessfully(string language, string level)
+        {
+            LanguagePage languagePageObj = new LanguagePage();
+
+            string newLanguage = languagePageObj.GetLanguage(driver);
+            string newLevel = languagePageObj.GetLevel(driver);
+            Assert.AreEqual(language, newLanguage, "Actual and expected Language do not match. Language not added!");
+            Assert.AreEqual(level, newLevel, "Actual and expected Language Level do not match. Language Level not added!");
+        }
 
     }
 }

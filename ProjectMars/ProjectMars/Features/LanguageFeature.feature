@@ -2,7 +2,8 @@
 
 As a language page 
 I would like to create, edit and delete languages 
-So i can manage 
+So that I can manage users' language and level successfully
+
 
 
 Scenario Outline: Create language and level record with valid details
@@ -35,3 +36,17 @@ Scenario Outline: Delete an existing language record with valid details
 Examples: 
 | Language | Level |
 | Spanish  | Basic |
+
+Scenario: Check the cancel function of the records
+	Given User is logged into localhost URL successful
+	When Check cancel button of the records
+	Then Cancel function is working successfully 
+
+Scenario Outline: For negative testing add skills record with valid details 
+Given User is logged into localhost URL successful
+When Add new record '<Language>' and '<Level>' to the language list
+Then Record with '<Language>' and '<Level>' are added successfully
+
+Examples: 
+| Language | Level  |
+| English  | Fluent |
