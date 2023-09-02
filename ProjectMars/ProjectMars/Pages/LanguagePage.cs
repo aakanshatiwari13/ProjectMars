@@ -9,42 +9,59 @@ namespace ProjectMars.Pages
     public class LanguagePage : CommonDriver
 
     {
+        public LanguagePage(IWebDriver driver, LoginPage loginPageInstance)
+        {
+            this.driver = driver; // Initialize the driver in the base class          
+        }
+
+         IWebElement addNew => driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/thead/tr/th[3]/div"));
+         IWebElement addlanguage => driver.FindElement(By.XPath("//input[@placeholder='Add Language']"));
+         IWebElement addButton => driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/div/div[3]/input[1]"));
+         IWebElement fourthLanguage => driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody[last()]/tr/td[1]"));
+         IWebElement chooseLevel => driver.FindElement(By.XPath("//*[@id=\'account-profile-section\']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody[last()]/tr/td[2]"));
+         IWebElement deleteLanguage => driver.FindElement(By.XPath(" //*[@id=\'account-profile-section\']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody[3]/tr/td[3]/span[2]/i"));
+         IWebElement addNewCancel => driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/div/div[3]/input[2]"));
+         IWebElement firstEdit => driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody[1]/tr/td[3]/span[1]/i"));
+         IWebElement firstCancel => driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody[1]/tr/td/div/span/input[2]"));
+         IWebElement secondEdit => driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody[2]/tr/td[3]/span[1]/i"));
+         IWebElement secondCancel => driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody[2]/tr/td/div/span/input[2]"));
+         IWebElement thirdEdit => driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody[3]/tr/td[3]/span[1]/i"));
+         IWebElement thirdCancel => driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody[3]/tr/td/div/span/input[2]"));
+         IWebElement clickEdit => driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody[4]/tr[last()]/td[3]/span[1]/i"));
+         IWebElement lastLanguage => driver.FindElement(By.XPath("//input[@placeholder='Add Language']"));
+         IWebElement languageLevelDropDown1 => driver.FindElement(By.Name("level"));
+         IWebElement updateButton => driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody[4]/tr/td/div/span/input[1]"));
+         IWebElement getMessage => driver.FindElement(By.XPath("/html/body/div[1]/div"));
+         IWebElement lastCancel => driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody[3]/tr/td[2]"));
+
 
         public void CreateLanguage(IWebDriver driver, string language, string level)
         {
 
             Wait.WaitToBeClickable(driver, "XPath", "//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/thead/tr/th[3]/div", 20);
+            addNew.Click();
 
-
-            //click on AddNew button for english
-            IWebElement AddNew = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/thead/tr/th[3]/div"));
-            AddNew.Click();
-
-            //add first language english language
-            IWebElement Addlanguage = driver.FindElement(By.XPath("//input[@placeholder='Add Language']"));
-            Addlanguage.SendKeys(language);
+            //Add  language
+            addlanguage.SendKeys(language);
 
             //choose language level 
-            IWebElement LanguageLevelDropDown = driver.FindElement(By.Name("level"));
-            SelectElement select = new SelectElement(LanguageLevelDropDown);
-            select.SelectByText(level);            
+            IWebElement languageLevelDropDown = driver.FindElement(By.Name("level"));
+            SelectElement select = new SelectElement(languageLevelDropDown);
+            select.SelectByText(level);
 
-            //click on add button 
-            IWebElement AddButton = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/div/div[3]/input[1]"));
-            AddButton.Click();
+            //click on add button             
+            addButton.Click();
             Thread.Sleep(2000);
         }
 
         public string GetLanguage(IWebDriver driver)
         {
-            Thread.Sleep(2000);
-            IWebElement LastLanguage = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody[last()]/tr/td[1]"));
-            return LastLanguage.Text;
+            Thread.Sleep(3000);
+            return fourthLanguage.Text;
         }
         public string GetLevel(IWebDriver driver)
         {
-            IWebElement ChooseLevel = driver.FindElement(By.XPath("//*[@id=\'account-profile-section\']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody[last()]/tr/td[2]"));
-            return ChooseLevel.Text;
+            return chooseLevel.Text;
         }
 
         //code for edit language    
@@ -54,23 +71,23 @@ namespace ProjectMars.Pages
             //click on edit button 
             Wait.WaitToBeClickable(driver, "XPath", "//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody[3]/tr/td[3]/span[1]/i", 20);
 
-            //edit the language                                   
-            IWebElement LastLanguage = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody[last()]/tr/td[1]"));
-            if (LastLanguage.Text == "Hindi")
+            //Edit the language                                   
+        
+            if (fourthLanguage.Text == "Hindi")
             {
-                Thread.Sleep(3000);
-                IWebElement ClickEdit = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody[4]/tr[last()]/td[3]/span[1]/i"));
-                ClickEdit.Click();
+                Thread.Sleep(3000);               
+                clickEdit.Click();
                 Thread.Sleep(2000);
-                IWebElement LastLanguage1 = driver.FindElement(By.XPath("//input[@placeholder='Add Language']"));
-                LastLanguage1.Clear();
-                LastLanguage1.SendKeys(language);
-                IWebElement LanguageLevelDropDown1 = driver.FindElement(By.Name("level"));
-                SelectElement select = new SelectElement(LanguageLevelDropDown1);
+              
+                lastLanguage.Clear();
+                lastLanguage.SendKeys(language);
+              
+                SelectElement select = new SelectElement(languageLevelDropDown1);
                 select.SelectByText(level);
-                IWebElement UpdateButton = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody[4]/tr/td/div/span/input[1]"));
-                UpdateButton.Click();
+                //IWebElement UpdateButton = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody[4]/tr/td/div/span/input[1]"));
+                updateButton.Click();
                 Thread.Sleep(3000);
+                
             }
             else
             {
@@ -81,35 +98,30 @@ namespace ProjectMars.Pages
         public string GetMessage(IWebDriver driver)
         {
             Thread.Sleep(2000);
-            IWebElement getMessage = driver.FindElement(By.XPath("/html/body/div[1]/div"));
             return getMessage.Text;
         }
 
         public string GetLanguage1(IWebDriver driver)
         {
             Thread.Sleep(2000);
-            IWebElement LastLanguage = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody[last()]/tr/td[1]"));
-            return LastLanguage.Text;
+            return fourthLanguage.Text;
         }
         public string GetLevel1(IWebDriver driver)
         {
-            IWebElement ChooseLevel = driver.FindElement(By.XPath("//*[@id=\'account-profile-section\']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody[last()]/tr/td[2]"));
-            return ChooseLevel.Text;
+            return chooseLevel.Text;
         }
 
         public void DeleteLanguage(IWebDriver driver, string language)
         {
-           Thread.Sleep(2000);
-           IWebElement DeleteLanguage = driver.FindElement(By.XPath("//tbody[3]/tr/td[1][text()='" + language + "']"));
-            IWebElement DeleteLanguage1 = driver.FindElement(By.XPath(" //*[@id=\'account-profile-section\']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody[3]/tr/td[3]/span[2]/i"));
-            DeleteLanguage1.Click();
+            Thread.Sleep(2000);
+            //IWebElement DeleteLanguage = driver.FindElement(By.XPath("//tbody[3]/tr/td[1][text()='" + language + "']"));
+            deleteLanguage.Click();
             Thread.Sleep(2000);
         }
         public string GetMessage1(IWebDriver driver)
         {
             Thread.Sleep(2000);
-            IWebElement getMessage1 = driver.FindElement(By.XPath("/html/body/div[1]/div"));
-            return getMessage1.Text;
+            return getMessage.Text;
         }
 
         public void CancelLanguage(IWebDriver driver)
@@ -118,44 +130,35 @@ namespace ProjectMars.Pages
             languageHomePageObj.GoToLanguagePage(driver);
             Thread.Sleep(2000);
             Wait.WaitToBeClickable(driver, "XPath", "//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/thead/tr/th[3]/div", 20);
-            //click addnew button 
-            IWebElement AddNew1 = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/thead/tr/th[3]/div"));
-            AddNew1.Click();
+            addNew.Click();
             Thread.Sleep(2000);
 
-            //click add new cancel 
-            IWebElement AddNewCancel = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/div/div[3]/input[2]"));
-            AddNewCancel.Click();
+            //click add new cancel
+            addNewCancel.Click();
             Thread.Sleep(1000);
 
-            //click first edit button 
-            IWebElement Edit1 = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody[1]/tr/td[3]/span[1]/i"));
-            Edit1.Click();
+            //click edit button 
+            firstEdit.Click();
             Thread.Sleep(1000);
 
             //click first cancel button 
-            IWebElement Cancel1 = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody[1]/tr/td/div/span/input[2]"));
-            Cancel1.Click();
+            firstCancel.Click();
             Thread.Sleep(1000);
 
             //click secong edit button 
-            IWebElement Edit2 = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody[2]/tr/td[3]/span[1]/i"));
-            Edit2.Click();
+           secondEdit.Click();
             Thread.Sleep(1000);
 
             //click second cancel button 
-            IWebElement Cancel2 = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody[2]/tr/td/div/span/input[2]"));
-            Cancel2.Click();
+            secondCancel.Click();
             Thread.Sleep(1000);
 
             //click third edit button 
-            IWebElement Edit3 = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody[3]/tr/td[3]/span[1]/i"));
-            Edit3.Click();
+            thirdEdit.Click();
             Thread.Sleep(1000);
 
             //click third cancel button 
-            IWebElement Cancel3 = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody[3]/tr/td/div/span/input[2]"));
-            Cancel3.Click();
+            thirdCancel.Click();
             Thread.Sleep(1000);
         }
 
@@ -164,9 +167,7 @@ namespace ProjectMars.Pages
             HomePage languageHomePageObj = new HomePage();
             languageHomePageObj.GoToLanguagePage(driver);
             Thread.Sleep(2000);
-            IWebElement LastCancel = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody[3]/tr/td[2]"));
-            Assert.That(LastCancel.Text == "Fluent", "Actual text and expected text do not match.");
+            Assert.That(lastCancel.Text == "Fluent", "Actual text and expected text do not match.");
         }
     }
 }
-

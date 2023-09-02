@@ -2,11 +2,6 @@
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
-
-﻿using NUnit.Framework;
-using OpenQA.Selenium.Chrome;
-using OpenQA.Selenium;
-using ProjectMars.Pages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,15 +24,15 @@ namespace ProjectMars.Utilities
         }
         [OneTimeTearDown]
 
-        public void SkillsLoginSteps()
-        {
-            driver = new ChromeDriver();
+        //public void SkillsLoginSteps()
+        //{
+        //    driver = new ChromeDriver();
 
-            //Login page object initialization and definition
-            SkillsLoginPage loginPageObj = new SkillsLoginPage();
-            loginPageObj.LoginSteps(driver);
-        }
-        [OneTimeTearDown]
+        //    //Login page object initialization and definition
+        //    SkillsLoginPage loginPageObj = new SkillsLoginPage();
+        //    loginPageObj.LoginSteps(driver);
+        //}
+        //[OneTimeTearDown]
         public void ClosingSteps()
         {
             driver.Quit();
